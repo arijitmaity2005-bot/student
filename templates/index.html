@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System</title>
+    <!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Google Fonts Links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <!-- Google Fonts Links -->
+
+
+     <!-- Font Awesome Cdn -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+     <!-- Font Awesome Cdn -->
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a href=""class="navbar-brand">Event-workshop</a>
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'services' %}">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'booking_portfolio' %}">Portfolio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'reason' %}">Why-choose-us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'reviews' %}">Review</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}"><i class="fa fa-user"></i> Login</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="header">
+    <img src="{% static 'photos/front.jpeg' %}" alt="Event Workshop">
+</div>
+        <section class="about-us">
+          <div class="container">
+              <h1>About Us</h1>
+              <p class="intro">
+                  Welcome to our website! We are a passionate team dedicated to providing the best services and experiences for our customers. Our mission is to innovate and lead in the industry, delivering excellence every step of the way.
+              </p>
+      </section>
+  
+        <header class="hero">
+          <div class="hero-content">
+            <h1 class="hero-title">Unforgettable Events, Expertly Crafted</h1>
+            <p class="hero-subtitle">Transform your vision into reality with our professional event planning services.</p>
+            <div class="cta-buttons">
+              <a href="{% url 'booking' %}" class="cta-btn primary">Book Your Event Now</a>
+              <a href="{% url 'cancel_booking' %}" class="cta-btn secondary">Cancel/Edit booking</a>
+            </div>
+          </div>
+        </header>
+        <section class="services">
+          <div class="services-container">
+            <h2 class="services-title">Our Services</h2>
+            <p class="services-description">We specialize in creating unforgettable events. Explore our diverse event management services below.</p>
+      
+            <div class="services-grid">
+              <!-- Service 1 -->
+              <div class="service-card">
+                <div class="service-icon">
+                  <img src="{% static 'photos/wedding.webp' %}" alt="Wedding Icon">
+                </div>
+                <h3 class="service-name">Weddings & Receptions</h3>
+                <p class="service-description">From intimate ceremonies to grand receptions, we design every detail to make your day perfect.</p>
+                <a href="#wedding" class="service-btn">Learn More</a>
+              </div>
+      
+              <!-- Service 2 -->
+              <div class="service-card">
+                <div class="service-icon">
+                  <img src="{% static 'photos/download.jpeg' %}" alt="Corporate Event Icon">
+                </div>
+                <h3 class="service-name">Corporate Events</h3>
+                <p class="service-description">Conferences, team-building, and business galas—we handle all the logistics so you can focus on your goals.</p>
+                <a href="#corporate" class="service-btn">Learn More</a>
+              </div>
+      
+              <!-- Service 3 -->
+              <div class="service-card">
+                <div class="service-icon">
+                  <img src="{% static 'photos/theater3.jpg' %}" alt="Private Party Icon">
+                </div>
+                <h3 class="service-name">Private Parties</h3>
+                <p class="service-description">Whether it's a birthday, anniversary, or special celebration, we create the perfect party experience.</p>
+                <a href="#party" class="service-btn">Learn More</a>
+              </div>
+      
+              <!-- Service 4 -->
+              <div class="service-card">
+                <div class="service-icon">
+                  <img src="{% static 'photos/consult.webp' %}" alt="Event Consulting Icon">
+                </div>
+                <h3 class="service-name">Event Consulting</h3>
+                <p class="service-description">Need help with planning? Our expert consultants offer personalized guidance to bring your event vision to life.</p>
+                <a href="#consulting" class="service-btn">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="portfolio">
+          <div class="portfolio-container">
+            <h2 class="portfolio-title">Our Portfolio</h2>
+            <p class="portfolio-description">Browse through our gallery of events we've helped bring to life. Each one is a reflection of our commitment to excellence.</p>
+      
+            <div class="portfolio-grid">
+              <!-- Portfolio Item 1 -->
+              <div class="portfolio-item">
+                <div class="portfolio-image">
+                  <img src="{% static 'photos/download (1).jpeg' %}" alt="Event 1">
+                </div>
+                <div class="portfolio-overlay">
+                  <h3 class="portfolio-item-title">Wedding Celebration</h3>
+                  <p class="portfolio-item-description">A beautifully organized wedding with an unforgettable reception.</p>
+                </div>
+              </div>
+      
+              <!-- Portfolio Item 2 -->
+              <div class="portfolio-item">
+                <div class="portfolio-image">
+                  <img src="{% static 'photos/download (3).jpeg' %}" alt="Event 2">
+                </div>
+                <div class="portfolio-overlay">
+                  <h3 class="portfolio-item-title">Corporate Gala</h3>
+                  <p class="portfolio-item-description">An elegant corporate event with impeccable planning and execution.</p>
+                </div>
+              </div>
+      
+              <!-- Portfolio Item 3 -->
+              <div class="portfolio-item">
+                <div class="portfolio-image">
+                  <img src="{% static 'photos/download (2).jpeg' %}" alt="Event 3">
+                </div>
+                <div class="portfolio-overlay">
+                  <h3 class="portfolio-item-title">Private Birthday Party</h3>
+                  <p class="portfolio-item-description">A fun and vibrant private celebration with custom themes and décor.</p>
+                </div>
+              </div>
+      
+              <!-- Portfolio Item 4 -->
+              <div class="portfolio-item">
+                <div class="portfolio-image">
+                  <img src="{% static 'photos/images.jpeg' %}" alt="Event 4">
+                </div>
+                <div class="portfolio-overlay">
+                  <h3 class="portfolio-item-title">Product Launch</h3>
+                  <p class="portfolio-item-description">A high-impact product launch with creative concepts and flawless execution.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="why-choose-us">
+          <div class="why-choose-us-container">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <p class="section-description">We offer unparalleled expertise and dedication in creating the perfect event tailored to your needs. Here's why we stand out:</p>
+      
+            <div class="why-choose-us-grid">
+              <!-- Point 1 -->
+              <div class="choose-us-item">
+                <div class="choose-us-icon">
+                  <img src="{% static 'photos/expertise.png' %}" alt="Expertise Icon">
+                </div>
+                <h3 class="choose-us-heading">Expert Planning</h3>
+                <p class="choose-us-description">Our experienced planners ensure every detail is perfectly coordinated for a seamless event.</p>
+              </div>
+      
+              <!-- Point 2 -->
+              <div class="choose-us-item">
+                <div class="choose-us-icon">
+                  <img src="{% static 'photos/quality.png' %}" alt="Quality Icon">
+                </div>
+                <h3 class="choose-us-heading">Top Quality Service</h3>
+                <p class="choose-us-description">We prioritize quality and precision, ensuring your event is executed with excellence.</p>
+              </div>
+      
+              <!-- Point 3 -->
+              <div class="choose-us-item">
+                <div class="choose-us-icon">
+                  <img src="{% static 'photos/creative.png' %}" alt="Creativity Icon">
+                </div>
+                <h3 class="choose-us-heading">Creative Concepts</h3>
+                <p class="choose-us-description">From unique themes to innovative designs, we bring fresh and creative ideas to every event.</p>
+              </div>
+      
+              <!-- Point 4 -->
+              <div class="choose-us-item">
+                <div class="choose-us-icon">
+                  <img src="{% static 'photos/dedicated.jpeg' %}" alt="Dedication Icon">
+                </div>
+                <h3 class="choose-us-heading">Unmatched Dedication</h3>
+                <p class="choose-us-description">Our team is passionate about bringing your vision to life, ensuring your event is a true success.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="reviews">
+          <div class="reviews-container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-description">Here's what our clients have to say about their experience with our event management services.</p>
+      
+            <div class="reviews-grid">
+              <!-- Review 1 -->
+              <div class="review-item">
+                <div class="review-content">
+                  <p class="review-text">"The team was absolutely amazing. They managed every detail of our wedding flawlessly, making it a day we will never forget. Highly recommend!"</p>
+                  <p class="review-author">- Sarah & John</p>
+                </div>
+              </div>
+      
+              <!-- Review 2 -->
+              <div class="review-item">
+                <div class="review-content">
+                  <p class="review-text">"We couldn't have asked for a better event planner for our corporate gala. The team was professional, creative, and extremely efficient!"</p>
+                  <p class="review-author">- Michael T.</p>
+                </div>
+              </div>
+      
+              <!-- Review 3 -->
+              <div class="review-item">
+                <div class="review-content">
+                  <p class="review-text">"An amazing birthday party! From the theme to the decorations, everything was perfect. The event was seamless and the service impeccable!"</p>
+                  <p class="review-author">- Emily R.</p>
+                </div>
+              </div>
+      
+              <!-- Review 4 -->
+              <div class="review-item">
+                <div class="review-content">
+                  <p class="review-text">"Our product launch was a huge success, thanks to the team's attention to detail and creativity. The event exceeded all our expectations!"</p>
+                  <p class="review-author">- David K.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="contact">
+          <div class="contact-container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-description">We'd love to hear from you! Whether you have questions, want to book a consultation, or need more details about our services, we're here to help.</p>
+      
+            <div class="contact-info">
+              <div class="contact-item">
+                <h3 class="contact-heading">Email Us</h3>
+                <p class="contact-detail">info@eventmanagement.com</p>
+              </div>
+              <div class="contact-item">
+                <h3 class="contact-heading">Call Us</h3>
+                <p class="contact-detail">+91 13664 34334</p>
+              </div>
+              <div class="contact-item">
+                <h3 class="contact-heading">Visit Us</h3>
+                <p class="contact-detail">123 Event Street, Suite 101, City, Country</p>
+              </div>
+            </div>
+      
+            <div class="contact-form-container">
+              <h3 class="form-title">Send Us a Message</h3>
+              <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                  <label for="name">Your Name</label>
+                  <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Your Email</label>
+                  <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                  <label for="message">Your Message</label>
+                  <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </section>
+        <div class="cta">
+            <a href="#join" class="cta-button">Join the Celebration</a>
+        </div>
+</header>
+<footer class="   footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
+    <div class="footer-left" itemscope itemtype="http://schema.org/Organization" class="h-card">
+      <img src="{% static 'photos/ari.jpeg' %}" alt="" style="width: 60px; ">
+     
+        <h3 itemprop="name" class="p-name">Event Workshop</h3>
+        <p class="footer-links">
+          <a href="{% url 'index' %}" class="link-1" itemprop="url">Back</a>
+  </p>
+        <p class="footer-name">Django project © 2026</p>
+    </div>
+  
+    <div class="footer-center">
+        <div itemscope itemtype="http://schema.org/PostalAddress" class="p-address">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <p>
+                <span itemprop="streetAddress" class="p-street-address">123 This is a Street</span>,
+                <span itemprop="addressLocality" class="p-locality">A Locality</span>,
+                <span itemprop="addressRegion" class="p-region">Region state</span>,
+                <span itemprop="postalCode" class="p-postal-code">12345</span>
+            </p>
+        </div>
+        <div>
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <p itemprop="telephone" class="p-tel">+91 13664 34334</p>
+        </div>
+        <div>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <p><a href="mailto:support@company.com" itemprop="email" class="u-email">info@eventmanagement.com</a></p>
+        </div>
+    </div>
+  
+    <div class="footer-right">
+        <p class="footer-about">
+            <span>About this site</span>
+           This site is made for my web designing project.I am not a web developer, but have a knack for creating stunning websites and applications. 
+        </p>
+        <div class="footer-socials">
+            <a href="#" rel="me" aria-label="Facebook" itemprop="sameAs" class="u-url"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" rel="me" aria-label="Twitter" itemprop="sameAs" class="u-url"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" rel="me" aria-label="LinkedIn" itemprop="sameAs" class="u-url"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" rel="me" aria-label="GitHub" itemprop="sameAs" class="u-url"><i class="fa-brands fa-github"></i></a>
+        </div>
+    </div>
+  </footer>
+
+</body>
+</html>

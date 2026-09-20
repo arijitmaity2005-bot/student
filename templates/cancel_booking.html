@@ -1,0 +1,465 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit / Cancel Booking</title>
+
+    <link rel="stylesheet" href="{% static 'css/cancel_booking.css' %}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+        <h1>Manage Booking</h1>
+    </nav>
+
+
+    <!-- Main Container -->
+
+    <div class="container">
+
+        <p class="subtitle">
+            Edit or cancel your event booking
+        </p>
+
+
+        <!-- Booking Information -->
+
+        <div class="booking-info">
+
+            <h2>Current Booking</h2>
+
+            <p>
+                <strong>Booking ID:</strong>
+                {{ booking.id }}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                {{ booking.status }}
+            </p>
+
+        </div>
+
+
+        <!-- Edit Booking Form -->
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <!-- Event Details -->
+
+            <div class="section">
+
+                <h2>Event Details</h2>
+
+                <label>Event Type</label>
+
+                <select name="event_type" required>
+
+                    <option value="">
+                        Select Event Type
+                    </option>
+
+                    <option value="Wedding"
+                        {% if booking.event_type == "Wedding" %}selected{% endif %}>
+                        Wedding
+                    </option>
+
+                    <option value="Birthday"
+                        {% if booking.event_type == "Birthday" %}selected{% endif %}>
+                        Birthday Party
+                    </option>
+
+                    <option value="Engagement"
+                        {% if booking.event_type == "Engagement" %}selected{% endif %}>
+                        Engagement
+                    </option>
+
+                    <option value="Anniversary"
+                        {% if booking.event_type == "Anniversary" %}selected{% endif %}>
+                        Anniversary
+                    </option>
+
+                    <option value="Corporate"
+                        {% if booking.event_type == "Corporate" %}selected{% endif %}>
+                        Corporate Event
+                    </option>
+
+                    <option value="Cultural"
+                        {% if booking.event_type == "Cultural" %}selected{% endif %}>
+                        Cultural Program
+                    </option>
+
+                    <option value="Workshop"
+                        {% if booking.event_type == "Workshop" %}selected{% endif %}>
+                        Workshop
+                    </option>
+
+                </select>
+
+
+                <label>Event Date</label>
+
+                <input
+                    type="date"
+                    name="event_date"
+                    value="{{ booking.event_date|date:'Y-m-d' }}"
+                    required
+                >
+
+
+                <label>Event Time</label>
+
+                <input
+                    type="time"
+                    name="event_time"
+                    value="{{ booking.event_time|time:'H:i' }}"
+                    required
+                >
+
+
+                <label>Number of Guests</label>
+
+                <input
+                    type="number"
+                    name="guests"
+                    min="1"
+                    value="{{ booking.guests }}"
+                    placeholder="Enter guest number"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Budget -->
+
+            <div class="section">
+
+                <h2>Budget</h2>
+
+                <label>Select Your Budget</label>
+
+                <select
+                    name="budget"
+                    id="budget"
+                    required
+                >
+
+                    <option value="">
+                        Select Budget
+                    </option>
+
+                    <option value="50000"
+                        {% if booking.budget == 50000 %}selected{% endif %}>
+                        ₹50,000
+                    </option>
+
+                    <option value="100000"
+                        {% if booking.budget == 100000 %}selected{% endif %}>
+                        ₹1,00,000
+                    </option>
+
+                    <option value="200000"
+                        {% if booking.budget == 200000 %}selected{% endif %}>
+                        ₹2,00,000
+                    </option>
+
+                    <option value="300000"
+                        {% if booking.budget == 300000 %}selected{% endif %}>
+                        ₹3,00,000
+                    </option>
+
+                    <option value="500000"
+                        {% if booking.budget == 500000 %}selected{% endif %}>
+                        ₹5,00,000
+                    </option>
+
+                    <option value="1000000"
+                        {% if booking.budget == 1000000 %}selected{% endif %}>
+                        ₹10,00,000
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Food Menu -->
+
+            <div class="section">
+
+                <h2>Food Menu</h2>
+
+                <h3>Vegetarian</h3>
+
+                <label class="menu">
+                    <input
+                        type="checkbox"
+                        name="menu"
+                        value="Basanti Pulao"
+                        {% if "Basanti Pulao" in booking.menu %}checked{% endif %}
+                    >
+                    Basanti Pulao
+                </label>
+
+                <label class="menu">
+                    <input
+                        type="checkbox"
+                        name="menu"
+                        value="Aloo Dum"
+                        {% if "Aloo Dum" in booking.menu %}checked{% endif %}
+                    >
+                    Aloo Dum
+                </label>
+
+                <label class="menu">
+                    <input
+                        type="checkbox"
+                        name="menu"
+                        value="Shukto"
+                        {% if "Shukto" in booking.menu %}checked{% endif %}
+                    >
+                    Shukto
+                </label>
+
+                <label class="menu">
+                    <input
+                        type="checkbox"
+                        name="menu"
+                        value="Paneer"
+                        {% if "Paneer" in booking.menu %}checked{% endif %}
+                    >
+                    Paneer Butter Masala
+                </label>
+
+
+                <h3>Non-Vegetarian</h3>
+
+                <label class="menu">
+                    <input
+                        type="checkbox"
+                        name="menu"
+                        value="Chicken Kosha"
+                        {% if "Chicken Kosha" in booking.menu %}checked{% endif %}
+                    >
+                    Chicken Kosha
+                </label>
+
+                <label class="menu">
+                    <input
+                        type="checkbox"
+                        name="menu"
+                        value="Mutton Kosha"
+                        {% if "Mutton Kosha" in booking.menu %}checked{% endif %}
+                    >
+                    Mutton Kosha
+                </label>
+
+                <label class="menu">
+                    <input
+                        type="checkbox"
+                        name="menu"
+                        value="Fish Fry"
+                        {% if "Fish Fry" in booking.menu %}checked{% endif %}
+                    >
+                    Fish Fry
+                </label>
+
+                <label class="menu">
+                    <input
+                        type="checkbox"
+                        name="menu"
+                        value="Chicken Biryani"
+                        {% if "Chicken Biryani" in booking.menu %}checked{% endif %}
+                    >
+                    Chicken Biryani
+                </label>
+
+            </div>
+
+
+            <!-- Location -->
+
+            <div class="section">
+
+                <h2>Location</h2>
+
+                <select
+                    name="location"
+                    id="location"
+                    required
+                >
+
+                    <option value="">
+                        Select Location
+                    </option>
+
+                    <option value="kolkata"
+                        {% if booking.location == "kolkata" %}selected{% endif %}>
+                        Kolkata
+                    </option>
+
+                    <option value="durgapur"
+                        {% if booking.location == "durgapur" %}selected{% endif %}>
+                        Durgapur
+                    </option>
+
+                    <option value="siliguri"
+                        {% if booking.location == "siliguri" %}selected{% endif %}>
+                        Siliguri
+                    </option>
+
+                    <option value="howrah"
+                        {% if booking.location == "howrah" %}selected{% endif %}>
+                        Howrah
+                    </option>
+
+                    <option value="kharagpur"
+                        {% if booking.location == "kharagpur" %}selected{% endif %}>
+                        Kharagpur
+                    </option>
+
+                    <option value="other"
+                        {% if booking.location == "other" %}selected{% endif %}>
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Requirements -->
+
+            <div class="section">
+
+                <h2>Other Requirements</h2>
+
+                <textarea
+                    name="requirements"
+                    placeholder="Write your requirements here..."
+                >{{ booking.requirements }}</textarea>
+
+            </div>
+
+
+            <!-- Save Changes -->
+
+            <div class="section">
+
+                <h2>Update Booking</h2>
+
+                <div class="payment">
+
+                    <p>
+                        Updated Estimated Amount:
+                        <strong id="totalAmount">
+                            ₹{{ booking.budget|default:"0" }}
+                        </strong>
+                    </p>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="update-btn"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <!-- Cancel Booking -->
+
+        <div class="cancel-section">
+
+            <h2>Cancel Booking</h2>
+
+            <p>
+                Are you sure you want to cancel this booking?
+            </p>
+
+            <p class="warning">
+                ⚠ This action cannot be undone.
+            </p>
+
+            <form
+                method="POST"
+                action="{% url 'cancel_booking' %}"
+                onsubmit="return confirm('Are you sure you want to cancel this booking?');"
+            >
+
+                {% csrf_token %}
+
+                <button
+                    type="submit"
+                    class="cancel-btn"
+                >
+                    Cancel Booking
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- Back Button -->
+
+    <div class="back-box">
+
+        <button
+            type="button"
+            onclick="history.back()"
+            class="back-button"
+        >
+            ← Back
+        </button>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        const budget = document.getElementById("budget");
+        const totalAmount = document.getElementById("totalAmount");
+
+        budget.addEventListener("change", function () {
+
+            let amount = Number(budget.value);
+
+            if (amount) {
+
+                totalAmount.innerText =
+                    "₹" + amount.toLocaleString("en-IN");
+
+            } else {
+
+                totalAmount.innerText = "₹0";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,395 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Event Booking</title>
+
+   <link rel="stylesheet" href="{% static 'css/booking.css' %}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+     
+
+    <nav class="navbar">
+        <h1>Event Booking</h1>
+
+     </nav>
+
+
+    <!-- Main -->
+
+    <div class="container">
+
+        
+
+        <p class="subtitle">
+            Plan your perfect event with us
+            
+        </p>
+
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <!-- Event Details -->
+
+            <div class="section">
+
+                <h2>Event Details</h2>
+
+
+                <label>Event Type</label>
+
+                <select name="event_type" required>
+
+                    <option value="">
+                        Select Event Type
+                    </option>
+
+                    <option value="Wedding">
+                        Wedding
+                    </option>
+
+                    <option value="Birthday">
+                        Birthday Party
+                    </option>
+
+                    <option value="Engagement">
+                        Engagement
+                    </option>
+
+                    <option value="Anniversary">
+                        Anniversary
+                    </option>
+
+                    <option value="Corporate">
+                        Corporate Event
+                    </option>
+
+                    <option value="Cultural">
+                        Cultural Program
+                    </option>
+
+                    <option value="Workshop">
+                        Workshop
+                    </option>
+
+                </select>
+
+
+                <label>Event Date</label>
+
+                <input type="date"
+                       name="event_date"
+                       required>
+
+
+                <label>Event Time</label>
+
+                <input type="time"
+                       name="event_time"
+                       required>
+
+
+                <label>Number of Guests</label>
+
+                <input type="number"
+                       name="guests"
+                       min="1"
+                       placeholder="Enter guest number"
+                       required>
+
+            </div>
+
+
+
+            <!-- Budget -->
+
+            <div class="section">
+
+                <h2>Budget</h2>
+
+                <label>
+                    Select Your Budget
+                </label>
+
+                <select name="budget"
+                        id="budget"
+                        required>
+
+                    <option value="">
+                        Select Budget
+                    </option>
+
+                    <option value="50000">
+                        ₹50,000
+                    </option>
+
+                    <option value="100000">
+                        ₹1,00,000
+                    </option>
+
+                    <option value="200000">
+                        ₹2,00,000
+                    </option>
+
+                    <option value="300000">
+                        ₹3,00,000
+                    </option>
+
+                    <option value="500000">
+                        ₹5,00,000
+                    </option>
+
+                    <option value="1000000">
+                        ₹10,00,000
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- Food Menu -->
+
+            <div class="section">
+
+                <h2>Food Menu</h2>
+
+
+                <h3>Vegetarian</h3>
+
+
+                <label class="menu">
+
+                    <input type="checkbox"
+                           name="menu"
+                           value="Basanti Pulao">
+
+                    Basanti Pulao
+
+                </label>
+
+
+                <label class="menu">
+
+                    <input type="checkbox"
+                           name="menu"
+                           value="Aloo Dum">
+
+                    Aloo Dum
+
+                </label>
+
+
+                <label class="menu">
+
+                    <input type="checkbox"
+                           name="menu"
+                           value="Shukto">
+
+                    Shukto
+
+                </label>
+
+
+                <label class="menu">
+
+                    <input type="checkbox"
+                           name="menu"
+                           value="Paneer">
+
+                    Paneer Butter Masala
+
+                </label>
+
+
+
+                <h3>Non-Vegetarian</h3>
+
+
+                <label class="menu">
+
+                    <input type="checkbox"
+                           name="menu"
+                           value="Chicken Kosha">
+
+                    Chicken Kosha
+
+                </label>
+
+
+                <label class="menu">
+
+                    <input type="checkbox"
+                           name="menu"
+                           value="Mutton Kosha">
+
+                    Mutton Kosha
+
+                </label>
+
+
+                <label class="menu">
+
+                    <input type="checkbox"
+                           name="menu"
+                           value="Fish Fry">
+
+                    Fish Fry
+
+                </label>
+
+
+                <label class="menu">
+
+                    <input type="checkbox"
+                           name="menu"
+                           value="Chicken Biryani">
+
+                    Chicken Biryani
+
+                </label>
+
+            </div>
+            <!-- Locations -->
+            
+            <div class="location-box">
+         <h2>Location</h2>
+        <select id="location" name="location">
+        <option value="" disabled selected>Select Location</option>
+        <option value="kolkata">Kolkata</option>
+        <option value="durgapur">Durgapur</option>
+        <option value="siliguri">Siliguri</option>
+        <option value="howrah">Howrah</option>
+        <option value="kharagpur">Kharagpur</option>
+        <option value="other">Other</option>
+    </select>
+</div>
+
+            <!-- Other Requirements -->
+
+            <div class="section">
+
+                <h2>Other Requirements</h2>
+
+                <textarea name="requirements"
+                          placeholder="Write your requirements here..."></textarea>
+
+            </div>
+
+
+
+            <!-- Confirm Booking -->
+
+            <div class="section">
+
+                <h2>Confirm Booking</h2>
+
+
+                <div class="payment">
+
+                    <p>
+                        Total Estimated Amount:
+                        <strong id="totalAmount">
+                            ₹0
+                        </strong>
+                    </p>
+
+
+                    <p class="advance">
+
+                        Booking Advance:
+                        <strong>₹50,000</strong>
+
+                    </p>
+
+
+                    <p class="note">
+
+                        ₹50,000 advance payment is required
+                        to confirm your booking.
+
+                    </p>
+
+
+                    <label>
+
+                        <input type="checkbox"
+                               required>
+
+                        I agree to pay ₹50,000 advance.
+
+                    </label>
+
+                </div>
+
+
+                <button type="submit">
+
+                    Pay ₹50,000 & Confirm Booking
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        const budget =
+            document.getElementById("budget");
+
+        const totalAmount =
+            document.getElementById("totalAmount");
+
+
+        budget.addEventListener("change", function () {
+
+            let amount =
+                Number(budget.value);
+
+
+            if (amount) {
+
+                totalAmount.innerText =
+                    "₹" +
+                    amount.toLocaleString("en-IN");
+
+            }
+
+            else {
+
+                totalAmount.innerText = "₹0";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+<div class="back-box">
+    <button type="button" onclick="history.back()" class="back-button">
+        ← Back
+    </button>
+</div>
+
+</html>

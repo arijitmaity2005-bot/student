@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef8f0,
+            #f8fcf8
+        );
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    color: #26382c;
+}
+
+
+/* ================= MAIN CARD ================= */
+
+.confirmation-card {
+    width: 100%;
+    max-width: 680px;
+
+    background: white;
+
+    padding: 38px;
+
+    border-radius: 22px;
+
+    border: 1px solid #dceade;
+
+    box-shadow:
+        0 15px 45px rgba(28, 76, 45, 0.12);
+}
+
+
+/* ================= SUCCESS ICON ================= */
+
+.success-icon {
+    width: 72px;
+    height: 72px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #21663a,
+            #55a66b
+        );
+
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto 18px;
+
+    font-size: 38px;
+    font-weight: bold;
+
+    box-shadow:
+        0 8px 20px rgba(33, 102, 58, 0.25);
+}
+
+
+/* ================= HEADING ================= */
+
+h1 {
+    text-align: center;
+
+    color: #174d2c;
+
+    font-size: 31px;
+
+    margin-bottom: 10px;
+}
+
+.message {
+    text-align: center;
+
+    color: #718078;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+.message strong {
+    color: #286c3e;
+}
+
+
+/* ================= DETAILS ================= */
+
+.details-box {
+    border: 1px solid #dce9df;
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    background: #fcfefc;
+}
+
+h2 {
+    color: #21663a;
+
+    font-size: 20px;
+
+    margin-bottom: 15px;
+}
+
+.detail {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #e8eee9;
+}
+
+.detail:last-child {
+    border-bottom: none;
+}
+
+.detail span {
+    color: #718078;
+}
+
+.detail strong {
+    color: #304638;
+
+    text-align: right;
+}
+
+
+/* ================= PAYMENT ================= */
+
+.payment-box {
+    background:
+        linear-gradient(
+            135deg,
+            #edf8ef,
+            #f8fcf8
+        );
+
+    padding: 22px;
+
+    border-radius: 14px;
+
+    margin-top: 20px;
+
+    border: 1px solid #cee3d3;
+}
+
+.payment-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 18px;
+
+    color: #21663a;
+}
+
+.payment-row strong {
+    color: #176331;
+}
+
+.payment-note {
+    color: #6c7b70;
+
+    font-size: 14px;
+
+    margin-top: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* ================= STATUS ================= */
+
+.status {
+    display: inline-block;
+
+    color: #176331;
+
+    background: #e3f4e7;
+
+    padding: 8px 13px;
+
+    border-radius: 20px;
+
+    font-weight: bold;
+
+    margin-top: 15px;
+
+    font-size: 14px;
+}
+
+
+/* ================= BACK BUTTON ================= */
+
+.back-button {
+    display: block;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #21663a,
+            #3c8b55
+        );
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    margin-top: 25px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 6px 15px rgba(33, 102, 58, 0.20);
+
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #174d2c,
+            #2e7545
+        );
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 20px rgba(33, 102, 58, 0.25);
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .confirmation-card {
+        padding: 23px;
+
+        border-radius: 16px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .detail {
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+    .detail strong {
+        text-align: left;
+    }
+
+    .payment-row {
+        font-size: 16px;
+    }
+
+}
